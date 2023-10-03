@@ -1,0 +1,27 @@
+<mat-card>
+  <mat-toolbar class="login-toolbar" color="accent">Login</mat-toolbar>
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <p>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Nome de usuário" formControlName="username" />
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field>
+          <input type="password" matInput placeholder="Senha" formControlName="password" />
+        </mat-form-field>
+      </p>
+
+      <p *ngIf="error" class="error">
+        {{ error }}
+      </p>
+
+      <div class="button">
+        <button mat-raised-button color="accent" type="submit" mat-button routerLink="/">Voltar</button>
+        <button mat-raised-button color="accent" type="submit" mat-button>Entrar</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

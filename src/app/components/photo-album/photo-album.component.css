@@ -1,0 +1,41 @@
+.basic-container {
+  margin-left: 24px;
+  padding: 5px;
+  align-content: center;
+  height: 100%; /* Adicione esta linha para ocupar 100% da altura disponível */
+  display: flex; /* Adicione esta linha para usar flexbox */
+  flex-direction: column; /* Adicione esta linha para empilhar os itens verticalmente */
+  justify-content: center; /* Adicione esta linha para centralizar verticalmente o conteúdo */
+}
+
+version-info {
+  font-size: 8pt;
+  float: right;
+}
+
+.g-overlay {
+  min-width: 320px;
+}
+
+gallery {
+  font-size: 16px;
+  align-self: center;
+  width: 60%; /* Adicione esta linha para centralizar o conteúdo dentro do .basic-container */
+}
+
+img {
+  width: 150px;
+}
+
+.lightbox-example,
+.gallerize-example {
+  margin: 2em;
+}
+
+button {
+  margin-right: 1em;
+}
+
+.toolbar {
+  position: relative;
+}

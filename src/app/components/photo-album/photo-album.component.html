@@ -1,0 +1,16 @@
+<mat-toolbar class="toolbar" color="primary">
+  Álbum de Fotos
+  <span style="flex: 1"></span>
+  <a mat-raised-button target="_blank" routerLink="/home">Voltar</a>
+</mat-toolbar>
+
+<div class="basic-container">
+  <h2>Álbum do Daniel</h2>
+  <gallery id="basic-test" imageSize="cover" fluid [items]="items"></gallery>
+</div>
+
+<div class="lightbox-example">
+  <button mat-raised-button color="primary" (click)="lightbox.open(0)">Abrir o álbum</button>
+  <button mat-raised-button color="primary">Criar Álbum</button>
+  <button mat-raised-button color="primary">Excluir</button>
+</div>

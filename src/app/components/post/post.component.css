@@ -1,0 +1,43 @@
+.login-toolbar{
+  text-align: center;
+  width: 100%;
+}
+
+mat-form-field{
+  width:800px;
+  height: 80px;
+}
+
+mat-toolbar{
+  width:800px;
+  margin-bottom: 32px;
+}
+
+button {
+  justify-content: space-between;
+}
+
+.preview {
+  max-width: 200px;
+  vertical-align: middle;
+}
+
+.list-card {
+  margin-top: 20px;
+}
+
+.image-inside-grid {
+  height: 50px;
+  position: absolute;
+  right: 5px;
+}
+
+#fileInput {
+  position: absolute;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+}

@@ -1,0 +1,41 @@
+<div class="login-container">
+  <div class="login-content">
+    <mat-toolbar class="login-toolbar" color="primary">Registre-se no Blog Sólides</mat-toolbar>
+    <mat-card>
+      <form [formGroup]="registerForm" #formDirective="ngForm" (ngSubmit)="onSubmit(registerForm, formDirective)">
+        <p>
+          <mat-form-field style="width: 100%">
+            <input autofocus type="email" matInput placeholder="Email *" formControlName="email" />
+            <mat-error *ngIf="checkValidation('email')">
+              {{ emaiErrors() }}
+            </mat-error>
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field style="width: 100%">
+            <input autofocus type="text" matInput placeholder="Nome de usuário *" formControlName="username" />
+            <mat-error *ngIf="checkValidation('username')">
+              {{ fieldRequired }}
+            </mat-error>
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field style="width: 100%">
+            <input type="password" autocomplete="false" matInput placeholder="Senha *" formControlName="password" />
+            <mat-hint>Escolha uma senha de pelo menos oito caracteres, uma letra maiúscula e um número.</mat-hint>
+            <mat-error *ngIf="checkValidation('password')">
+              {{ getErrorPassword() }}
+            </mat-error>
+          </mat-form-field>
+        </p>
+        <hr style="margin-top: 24px" />
+        <div class="buttons">
+          <button type="submit" mat-raised-button color="primary" routerLink="/">Voltar</button>
+          <button [disabled]="registerForm.invalid" type="submit" mat-raised-button color="primary">Concluir</button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>
