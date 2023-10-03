@@ -1,27 +1,31 @@
 # BlogWeb
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.4.
+Bem-vindo ao Projeto Blog Web! Este projeto é uma aplicação web construída com Angular 16, visto que não foi possível a instalação do angular 8 na minha máquina pela não aceitação do comando ng do angular CLI, sendo a instalçao feita apenas pelo npm, o que não permite instalar cersões antigas do Angular.
 
-## Development server
+## Pré-requisitos
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Certifique-se de ter as seguintes ferramentas instaladas em seu ambiente de desenvolvimento:
 
-## Code scaffolding
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/)
+- [Angular CLI](https://cli.angular.io/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Instalação
 
-## Build
+1. Clone este repositório:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+   git clone https://github.com/daneil1808/solides-blog-web.git
 
-## Running unit tests
+2. Navegue até o diretório do projeto:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+   cd nome-do-projeto
 
-## Running end-to-end tests
+3. Instale as dependências:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+   npm install
 
-## Further help
+4. Executando o Projeto
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+   Inicie o servidor de desenvolvimento:
+
+   ng serve

@@ -14,8 +14,8 @@
 
         <p>
           <mat-form-field style="width: 100%">
-            <input autofocus type="text" matInput placeholder="Nome de usuário *" formControlName="username" />
-            <mat-error *ngIf="checkValidation('username')">
+            <input autofocus type="text" matInput placeholder="Nome de usuário *" formControlName="userName" />
+            <mat-error *ngIf="checkValidation('userName')">
               {{ fieldRequired }}
             </mat-error>
           </mat-form-field>
@@ -32,7 +32,7 @@
         </p>
         <hr style="margin-top: 24px" />
         <div class="buttons">
-          <button type="submit" mat-raised-button color="primary" routerLink="/">Voltar</button>
+          <button mat-raised-button color="primary" routerLink="/">Voltar</button>
           <button [disabled]="registerForm.invalid" type="submit" mat-raised-button color="primary">Concluir</button>
         </div>
       </form>

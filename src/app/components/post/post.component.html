@@ -1,47 +1,45 @@
 <mat-card>
   <mat-card-content class="post-form">
-      <h1>Faça seu post em nosso blog!</h1>
-        <form [formGroup]="form" (ngSubmit)="submit()">
-          <p>
-            <mat-form-field class="text-post">
-              <textarea wrap="hard" type="text" matInput placeholder="Digite seu texto aqui" formControlName="text"></textarea>
-            </mat-form-field>
-          </p>
+    <h1>Faça seu post em nosso blog!</h1>
+    <form [formGroup]="form" (ngSubmit)="submitPost()">
+      <p>
+        <mat-form-field class="text-post">
+          <textarea
+            wrap="hard"
+            type="text"
+            matInput
+            placeholder="Digite seu texto aqui"
+            formControlName="text"
+          ></textarea>
+        </mat-form-field>
+      </p>
 
-          <p>
-            <mat-form-field>
-              <input  type="url" matInput placeholder="Link" formControlName="link">
-            </mat-form-field>
-          </p>
+      <p>
+        <mat-form-field>
+          <input type="url" matInput placeholder="Link" formControlName="links" />
+        </mat-form-field>
+      </p>
 
-          <div>
-            <mat-toolbar>
-            <input
-              type="file"
-              id="fileInput"
-              name="fileInput"
-              accept="image/*" multiple
-              (change)="selectFiles($event)"
-            />
-            Selecione sua imagem
-            </mat-toolbar>
-          </div>
+      <div>
+        <mat-toolbar>
+          <input type="file" id="fileInput" name="fileInput" accept="image/*" multiple (change)="selectFiles($event)" />
+          Selecione sua imagem
+        </mat-toolbar>
+      </div>
 
-          <div>
-            <img *ngFor='let preview of previews' [src]="preview" class="preview">
-          </div>
+      <div>
+        <img *ngFor="let preview of previews" [src]="preview" class="preview" />
+      </div>
 
-          <div *ngIf="message.length" class="message">
-            <ul *ngFor="let msg of message; let i = index">
-              <li>{{ msg }}</li>
-            </ul>
-          </div>
+      <div *ngIf="message.length" class="message">
+        <ul *ngFor="let msg of message; let i = index">
+          <li>{{ msg }}</li>
+        </ul>
+      </div>
 
-          <div class="buttons">
-            <button mat-raised-button color="primary" type="submit" mat-button routerLink="/feed">Postar</button>
-            <button mat-raised-button color="accent" type="submit" mat-button routerLink="/menu">Voltar</button>
-          </div>
-
-        </form>
+      <div class="buttons">
+        <button mat-raised-button color="primary" type="submit" mat-button>Postar</button>
+      </div>
+    </form>
   </mat-card-content>
 </mat-card>

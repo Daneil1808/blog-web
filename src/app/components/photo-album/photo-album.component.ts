@@ -1,6 +1,4 @@
 import { Component } from '@angular/core'
-import { bootstrapApplication } from '@angular/platform-browser'
-import { provideAnimations } from '@angular/platform-browser/animations'
 import { GalleryItem, Gallery, ImageItem, ImageSize, ThumbnailsPosition } from 'ng-gallery'
 import { Lightbox } from 'ng-gallery/lightbox'
 

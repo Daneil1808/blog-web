@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { ApiService } from 'src/app/api.service'
+import { Post } from 'src/app/interfaces/Post'
+import { FormControl, FormGroup } from '@angular/forms'
 
 @Component({
   selector: 'app-news-feed',
@@ -7,29 +9,53 @@ import { ApiService } from 'src/app/api.service'
   styleUrls: ['./news-feed.component.css'],
 })
 export class NewsFeedComponent implements OnInit {
-  mArticles: any[] | undefined
-  mSources: any[] | undefined
+  form: FormGroup = new FormGroup({
+    comment: new FormControl(''),
+  })
 
-  constructor(private newsapi: ApiService) {}
+  posts: Post[] | undefined
+
+  constructor(private apiService: ApiService) {}
 
   ngOnInit() {
-    // Carregar as fontes de notícias
-    this.newsapi.initSources().subscribe((data: { sources?: any[] }) => {
-      this.mSources = data.sources || []
-    })
-
-    // Carregar os principais artigos
-    this.newsapi.initArticles().subscribe((data: { articles?: any[] }) => {
-      this.mArticles = data.articles || []
-    })
+    this.getAllPosts()
   }
 
-  searchArticles(source: string | String) {
-    console.log('selected source is: ' + source)
+  getAllPosts(): void {
+    this.apiService.getAllPosts().subscribe(
+      (data: Post[]) => {
+        this.posts = data.reverse() || []
+      },
+      (error) => {
+        console.error('Erro ao obter posts:', error)
+      },
+    )
+  }
 
-    // Carregar artigos com base na fonte selecionada
-    this.newsapi.getArticlesByID(source).subscribe((data: { articles?: any[] }) => {
-      this.mArticles = data.articles || []
-    })
+  submitComment(postId: string): void {
+    const comment = this.form.get('comment')?.value
+
+    if (comment && postId) {
+      this.apiService.postComment(postId, comment).subscribe(
+        (response) => {
+          console.log('Comentário adicionado com sucesso:', response)
+          this.getAllPosts()
+        },
+        (error) => {
+          console.error('Erro ao adicionar comentário:', error)
+        },
+      )
+    }
+  }
+
+  deletePost(postId: string): void {
+    this.apiService.deletePost(postId).subscribe(
+      () => {
+        this.getAllPosts()
+      },
+      (error) => {
+        console.error('Erro ao deletar post:', error)
+      },
+    )
   }
 }

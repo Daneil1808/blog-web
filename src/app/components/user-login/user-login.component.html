@@ -4,7 +4,7 @@
     <form [formGroup]="form" (ngSubmit)="submit()">
       <p>
         <mat-form-field>
-          <input type="text" matInput placeholder="Nome de usuário" formControlName="username" />
+          <input type="text" matInput placeholder="Nome de usuário" formControlName="userName" />
         </mat-form-field>
       </p>
 
@@ -19,7 +19,7 @@
       </p>
 
       <div class="button">
-        <button mat-raised-button color="accent" type="submit" mat-button routerLink="/">Voltar</button>
+        <button mat-raised-button color="accent" mat-button routerLink="/">Voltar</button>
         <button mat-raised-button color="accent" type="submit" mat-button>Entrar</button>
       </div>
     </form>

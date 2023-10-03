@@ -1,0 +1,21 @@
+.post-card {
+  margin-top: 16px;
+}
+
+.title {
+  margin-left: 16px;
+}
+
+.comment {
+  width: 700px;
+  height: 80px;
+}
+
+.comment-button {
+  margin-left: 16px;
+}
+
+.delete-post-button {
+  margin-left: auto;
+  cursor: pointer;
+}

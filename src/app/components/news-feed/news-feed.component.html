@@ -1,25 +1,45 @@
 <app-post></app-post>
 
-<mat-card class="example-card" *ngFor="let article of mArticles">
+<h2 class="title">Últimas publicações</h2>
+<mat-card class="post-card" *ngFor="let post of posts">
   <mat-card-header>
-    <div
-      mat-card-avatar
-      [ngStyle]="{ 'background-image': 'url(../assets/images/' + article.source.id + '.png)' }"
-      class="example-header-image"
-    ></div>
-    <mat-card-title class="title">{{ article.title }}</mat-card-title>
-    <mat-card-subtitle>{{ article.source.name }}</mat-card-subtitle>
+    <mat-card-title class="text">Conteúdo: {{ post.text }}</mat-card-title>
+    <button (click)="deletePost(post.id)" class="delete-post-button" mat-icon-button>
+      <mat-icon>delete</mat-icon>
+    </button>
+    <mat-card-subtitle>
+      <span *ngFor="let comment of post.comments">Comentários: {{ comment }} </span>
+    </mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image class="img-article" src="{{ article.urlToImage }}" alt="" />
   <mat-card-content>
     <p>
-      {{ article.description }}
+      <span *ngFor="let link of post.links">Links: {{ link }} </span>
     </p>
   </mat-card-content>
-  <mat-card-actions class="action-buttons">
-    <button mat-button color="primary"><mat-icon>thumb_up_alt</mat-icon> 12 Likes</button>
-    <button mat-button color="primary"><mat-icon>comment</mat-icon> Comments</button>
-    <button mat-button color="primary"><mat-icon>share</mat-icon> Share</button>
-    <a mat-button color="primary" href="{{ article.url }}" target="_blank"><mat-icon>visibility</mat-icon> View</a>
-  </mat-card-actions>
+  <div *ngFor="let photo of post.photos">
+    <span>Fotos:</span>
+    <img mat-card-image class="img-article" src="{{ photo }}" alt="" />
+  </div>
+  <div *ngFor="let comment of post.comments">
+    <span>Comentários: {{ comment }}</span>
+    <button mat-icon-button>
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+  <div>
+    <form [formGroup]="form" (ngSubmit)="submitComment(post.id)">
+      <p>
+        <mat-form-field class="comment">
+          <textarea
+            wrap="hard"
+            type="text"
+            matInput
+            placeholder="Digite seu comentário aqui"
+            formControlName="comment"
+          ></textarea>
+        </mat-form-field>
+        <button class="comment-button" mat-raised-button color="primary" type="submit">Commentar</button>
+      </p>
+    </form>
+  </div>
 </mat-card>
